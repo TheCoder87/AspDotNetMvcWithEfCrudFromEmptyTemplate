@@ -1,7 +1,18 @@
-﻿
+﻿@model AspDotNetMvcWithEfCrudFromEmptyTemplate.Models.LoginModel
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
+
+@Html.ValidationSummary(true)
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+    <br/>
+    <p>
+        <button type="submit">Log In</button>
+    </p>
+}
 
