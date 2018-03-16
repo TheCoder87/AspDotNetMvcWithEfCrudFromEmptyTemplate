@@ -20,7 +20,22 @@
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                    <li>
+                        @Html.ActionLink("Hello " + User.Identity.Name + " !", "index", "home", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Logout", "Auth")">Logout</a>
+                    </li>
+                    }
+                    else
+                    {
+                        <li>
+                        @Html.ActionLink("Login", "login", "Auth", new { area = "" }, new { @class = "navbar-brand" })
+                    </li>
+                    }
                 </ul>
             </div>
         </div>
