@@ -46,7 +46,7 @@ namespace AspDotNetMvcWithEfCrudFromEmptyTemplate.Controllers
 
                 return Redirect(GetRedirectUrl(model.ReturnUrl));
             }
-
+            ModelState.AddModelError("", "Invalid Email or Password");
             return View(model);
         }
 
